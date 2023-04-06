@@ -1,24 +1,24 @@
 ﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "api": {
+    "mission14_tcp44_EVERYTHING": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "food",
+      "launchUrl": "movie",
       "applicationUrl": "https://localhost:4000",
       "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" }
     }
   }
-}  
+} 
 
 //{
-//  "$schema": "",
+//  "$schema": "https://json.schemastore.org/launchsettings.json",
 //  "iisSettings": {
 //    "windowsAuthentication": false,
 //    "anonymousAuthentication": true,
 //    "iisExpress": {
-//      "applicationUrl": "",
+//      "applicationUrl": "http://localhost:57916",
 //      "sslPort": 44393
 //    }
 //  },
@@ -28,7 +28,7 @@
 //      "dotnetRunMessages": true,
 //      "launchBrowser": true,
 //      "launchUrl": "swagger",
-//      "applicationUrl": "",
+//      "applicationUrl": "https://localhost:7214;http://localhost:5056",
 //      "environmentVariables": {
 //        "ASPNETCORE_ENVIRONMENT": "Development"
 //      }

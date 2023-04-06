@@ -1,24 +1,20 @@
-import { useState } from 'react';
-import data from '../MovieData.json';
+import { useEffect, useState } from 'react';
+//import data from '../MovieData.json';
+import { Movie } from '../types/movies';
 
-const mds = data.MovieData;
+//const mds = data.MovieData; //I kept this intentionally to reference after
 
 function MovieList() {
-  const [listOMovies, setListOMovies] = useState(mds); //initial value from mds
+  const [listOMovies, setListOMovies] = useState<Movie[]>([]); //initial value from mds
 
-  const addMovie = () => {
-    setListOMovies([
-      ...mds,
-      {
-        category: 'Action/Adventure',
-        title: 'Dark Knight Rises, The',
-        year: 2012,
-        director: 'Christopher Nolan',
-        rating: 'PG-13',
-        edited: 'No',
-      },
-    ]);
-  };
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const rsp = await fetch('https://localhost:4000/movie'); //this is the localhost
+      const temp = await rsp.json();
+      setListOMovies(temp);
+    };
+    fetchMovie();
+  }, []); //if data, get it from api, else, return empty string (tihs line)
 
   return (
     <>
@@ -34,26 +30,25 @@ function MovieList() {
                 <th>Rating</th>
                 <th>Category</th>
                 <th>Edited</th>
+                <th>Lent To</th>
+                <th>Notes</th>
               </tr>
             </thead>
             <tbody>
               {listOMovies.map((m, index) => (
-                <tr key={index}>
+                <tr key={m.movieId}>
                   <td>{m.title}</td>
                   <td>{m.year}</td>
                   <td>{m.director}</td>
                   <td>{m.rating}</td>
                   <td>{m.category}</td>
                   <td>{m.edited}</td>
+                  <td>{m.lentTo}</td>
+                  <td>{m.notes}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="text-center">
-          <button className="btn btn-primary" onClick={addMovie}>
-            Add Movie
-          </button>
         </div>
       </div>
     </>

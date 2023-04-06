@@ -4,7 +4,7 @@ using mission14_tcp44_EVERYTHING.Data;
 
 namespace mission14_tcp44_EVERYTHING.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MovieController : Controller //ControllerBase was here
     {
@@ -13,10 +13,13 @@ namespace mission14_tcp44_EVERYTHING.Controllers
         {
             context = temp;
         }
-        public IEnumerable<HiltonMovies> Get()
+        public IEnumerable<Movie> Get()
         {
             var x = context.Movies.ToArray();
-            return context.Movies.ToArray(); //here is where add .Where
+            return context.Movies
+                .Where(m => m.Edited == "Yes")
+                .OrderBy(m => m.Title)
+                .ToArray(); //here is where add .Where
         }
     }
 }
