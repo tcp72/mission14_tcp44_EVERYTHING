@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\mission14_tcp44_EVERYTHING.props" />
+</Project>

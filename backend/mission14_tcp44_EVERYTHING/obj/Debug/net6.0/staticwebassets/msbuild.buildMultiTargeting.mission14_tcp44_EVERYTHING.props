@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\mission14_tcp44_EVERYTHING.props" />
+</Project>
