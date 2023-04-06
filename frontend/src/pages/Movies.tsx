@@ -32,6 +32,7 @@ function MovieList() {
                 <th>Edited</th>
                 <th>Lent To</th>
                 <th>Notes</th>
+                <th>Movie Id</th>
               </tr>
             </thead>
             <tbody>
@@ -45,6 +46,7 @@ function MovieList() {
                   <td>{m.edited}</td>
                   <td>{m.lentTo}</td>
                   <td>{m.notes}</td>
+                  <td>{m.movieId}</td>
                 </tr>
               ))}
             </tbody>
